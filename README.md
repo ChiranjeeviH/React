@@ -19,9 +19,9 @@ React Fundamentals learning
 
 # Way of Rendering (HTML,Plain JavaScript, React using CDN's)
 # HTML:
-**<div id="root">
-        <h1>Hello World</h1>
-</div>**
+<div id="root">
+    <h1>Hello World</h1>
+</div>
 
 # JS
  <script> 
@@ -39,3 +39,23 @@ React Fundamentals learning
         const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(message)
  </script>
+  <!-- HTML way of writing Parent and child elements
+          <div id="parent">
+            <div id="child">
+                <h1 id="greeting">Greeting</h1>
+                <h2 id="greeting1">Greeting1</h2>
+            </div>
+         </div>
+
+          <script>
+            <!-- React way of writing the above HTML parent and child cases with the help of CDN's-->
+
+            const message = React.createElement('h3', {}, 'Hello World from React')
+
+            const greetings = React.createElement('div', { id: "parent" }, React.createElement('div', { id: "child" }, [React.createElement('h1', { id: "greeting" }, "Greeting1"),                 React.createElement('h2', { id: "greeting1" }, "Greeting2")]))
+
+            const root = ReactDOM.createRoot(document.getElementById('root'))
+
+            root.render([message, greetings])
+
+        </script>
