@@ -59,3 +59,10 @@ React Fundamentals learning
             root.render([message, greetings])
 
         </script>
+
+# Create React project with the help of Vite
+1) npm create vite@latest
+2) npm install (inside the the newly created project)
+3) npm run dev
+Single command
+npm init vite@latest my-app --template react
