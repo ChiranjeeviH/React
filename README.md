@@ -22,16 +22,15 @@ React Fundamentals learning
 <div id="root">
         <h1>Hello World</h1>
 </div>
+
 # JS
  <script> 
         const messge = document.createElement('h1')
-
         messge.innerHTML = "Hello World from JavaScript"
-
         const root = document.getElementById("root")
-
         root.appendChild(messge)
-    </script>
+ </script>
+    
 # React using CDN's
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
