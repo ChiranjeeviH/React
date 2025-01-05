@@ -1,0 +1,190 @@
+JSX : JSX is an extension to Java script which doesn't run directly in browser. React uses JSX to write the        javascripts in HTML, to render in UI.
+So, to make JSX work, we need to use build process in react which will convert JSX to JS script which can be understable to browsers.
+
+JavaScript Refresher
+1) Import & Export:
+   JavaScript allows to export the variables, methods to other scripts by using export command
+   export authkey as key; - authscript.js
+   export default ####; (we can only have one default export per script file)
+
+   Import: We can import variables methods from other script files by using import tag
+   import {key} from authscript.js;
+   import token from authscript.js; -- given name for default exported variable
+
+   importing all exported variables or methods from other scripts by using *
+   import * as auth from authscript.js
+
+2) Variables and Operators 
+    variables need to write by following camelcase ex:- name,empNumber,maxPrice.
+    JS allows all Operators (+,-,*,/,=,===,<,>) 
+    "+" not only works with numeric values but also works with strings 
+    console.log(2+2); -> 4
+    console.log("Hello"+"World"); -> HelloWorld
+
+3) Functions
+   functions writes to call N number of times and solve repetative work.
+        function greet(){
+            console.log("Hello World!!");
+        }
+        function greet(name){
+            console.log("Hello "+name);
+        }
+        function greet(name, greet=".Hello!!"){
+            console.log("Hi,"+name+greet);
+        }
+
+        Anonymous function:
+        () => : it denotes the Anonymous function which doesn't have any name.
+        1) Omitting parameter list parentheses
+
+        If your arrow functions takes exactly one parameter, you may omit the wrapping parentheses.
+
+        Instead of
+
+        (userName) => { ... }
+        you could write
+
+        userName => { ... }
+        Please note: 
+
+        If your function takes no parameters, parentheses must not be omitted - () => { ... } is the only correct form in that case.
+
+        If your function takes more than one parameter, you also must not omit parentheses - userName, userAge => { ... } would be invalid ((userName, userAge) => { ... } is correct)!
+
+        2) Omitting function body curly braces
+
+        If your arrow function contains no other logic but a return statement, you may omit the curly braces and the return keyword.
+
+        Instead of
+
+        number => { 
+        return number * 3;
+        }
+        you could write
+
+        number => number * 3;
+        The following code would be invalid:
+
+        number => return number * 3; // invalid because return keyword must also be omitted!
+        number => if (number === 2) { return 5 }; // invalid because if statements can't be returned
+        3) Special case: Just returning an object
+
+        If you go for the shorter alternative explained in 2) and you're trying to return a JavaScript object, you may end up with the following, invalid code:
+
+        number => { age: number }; // trying to return an object
+        This code would be invalid because JavaScript treats the curly braces as function body wrappers (not as code that creates a JS object).
+
+        To "tell" JavaScript that an object should be created (and returned) instead, the code would need to be adjusted like this:
+
+        number => ({ age: number }); // wrapping the object in extra parentheses
+        By wrapping the object and its curly braces with an extra pair of parentheses, JavaScript understands that the curly braces are not there to define a function body but instead to create an object. Hence that object then gets returned.
+
+4) Classes and Objects
+    class can be created using const variable to group the values and method and also a special keyword class.
+    const user = {
+        user : "chiru",
+        ager : 30,
+
+        greet(){
+            console.log("Hi");
+        }
+    }
+
+    export class User{
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        display(){
+            //console.log(this);
+            console.log(this.name,this.age);
+        }
+    }
+    the code in app.js, as we have imported so calling this way
+    const user1 = new util.User("chiru",30);
+    user1.display();
+
+5) Arrays
+    const fruits = ['Apple','Mango','Guava','PineApple'];
+    console.log(fruits[1]);
+
+    findIndex - const index = fruits.findIndex((item) => {
+        if(item === 'Guava'){
+            return item;
+        }
+    });
+
+    Destructuring:
+       
+    const [name,age] = ["sandhya",27];
+    console.log(name);
+    console.log(age);
+
+    const {firstname,babyage} = {
+        firstname : "sarayu",
+        babyage : 4
+    }
+    console.log(firstname);
+    console.log(babyage);
+
+6) Spread Operator
+    "..." is called as spread operator, which can help merge two lists into one.
+    const list1 = [1,3,5,7,9];
+    const list2 = [0,2,4,6,8];
+    const list3 = list1 + list2;
+    const list4 = [...list1,...list2];
+    const list5 = [list1,list2];
+    
+    console.log("with concatination operator ",list3);
+    console.log("with spread operator ",list4);
+    console.log("add two lists directly ",list5);
+    //use spread operator for Objects
+    //calling spread function from util service
+        util.spreadoperator();
+        
+        const Extendeduser = {
+            isAdmin : true,
+            ...user1
+        }
+
+        console.log(Extendeduser);
+7) Control statements
+    if(a==2){
+        console.log("its equal to 2");
+    }
+
+    const fruits = ['Apple','Mango','Guava','PineApple'];
+    for(const fruit of fruits){
+        console.log(fruit);
+    }
+
+
+React Essentials - Components, JSX, Props, State&More 
+
+1) Download the essentials project from course catalog
+2) use npm install to install related packages from npm
+3) run npm run dev - to run the app in dev environment
+
+Component is nothing but a javascript function in JSX files
+const entryPoint = document.getElementById("root") - which gets root div from the main html file i.e, html.
+ReactDOM.createRoot(entryPoint).render(<App />) - this will render the main jsx file which has actual rendering logic.
+
+
+8) Fragments
+-> Unlike JavaScript, React can return multiple values or UI elements by grouping together with one parent element.
+such <div>. But this will internally creates a new element in DOM. 
+
+But, react provides a feature which can help not burden the UI with extra UI element, as <Fragment>
+-> In new React version even Fragment is also not required, it can be replaced with <> </>
+
+*** When you should split components
+    -> Check if unnecessary loading is happening at wrong components.
+    -> Splitting the components by feature and State
+
+9) public folder
+
+-> you can store images in the public/ folder and then directly reference them from inside your index.html or index.css files.
+-> The reason for that is that images (or, in general: files) stored in public/ are made publicly available by the underlying project development server & build process. Just like index.html, those files can directly be visited from inside the browser and can therefore also be requested by other files.
+-> If you try loading localhost:5173/some-image.jpg, you'll be able to see that image (if it exists in the public/ folder, of course).
+
