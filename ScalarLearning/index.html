@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <!-- <h1>Hello World</h1> -->
+        <!-- HTML way of writing Parent and child elements
+          <div id="parent">
+            <div id="child">
+                <h1 id="greeting">Greeting</h1>
+                <h2 id="greeting1">Greeting1</h2>
+            </div>
+         </div>
+    </div> -->
+
+        <!--   <script> Java Script way of creating elements and rendering them
+        const messge = document.createElement('h1')
+
+        messge.innerHTML = "Hello World from JavaScript"
+
+        const root = document.getElementById("root")
+
+        root.appendChild(messge)
+    </script> -->
+
+        <!-- Create React way using CDN's-->
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script>
+            <!-- React way of writing the above HTML parent and child cases with the help of CDN's-->
+
+            const message = React.createElement('h3', {}, 'Hello World from React')
+
+            const greetings = React.createElement('div', { id: "parent" }, React.createElement('div', { id: "child" }, [React.createElement('h1', { id: "greeting" }, "Greeting1"), React.createElement('h2', { id: "greeting1" }, "Greeting2")]))
+
+            const root = ReactDOM.createRoot(document.getElementById('root'))
+
+            root.render([message, greetings])
+
+        </script>
+
+</body>
+
+</html>
