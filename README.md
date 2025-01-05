@@ -19,9 +19,9 @@ React Fundamentals learning
 
 # Way of Rendering (HTML,Plain JavaScript, React using CDN's)
 # HTML:
-<div id="root">
+**<div id="root">
         <h1>Hello World</h1>
-</div>
+</div>**
 
 # JS
  <script> 
